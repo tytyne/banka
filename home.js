@@ -1,7 +1,9 @@
-var http = require('http');
+const express = require('express');
+const app = express();
 
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    console.log("hello world");
-    res.end('Hello World!');
-}).listen(8080);
+app.get('/', (req, res) => { // new router
+  res.send('Homepage! Hello world.');
+});
+
+app.listen(8080, () => console.log('listening on port 8080'));
+
